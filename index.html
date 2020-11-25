@@ -24,11 +24,17 @@
         render() {
           //JSX
           const title = "ReactJS"
+          const changeTitle = () => {
+            title = "Vue"
+          }
 
           return (
             <div>
               <h1>Hello {title}</h1>
               <Names />
+              <button on click={changeTitle}>
+                changeTitle
+              </button>
             </div>
           )
 
