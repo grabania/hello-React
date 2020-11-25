@@ -19,13 +19,12 @@
           const title = "ReactJS"
           const names = ["Kevin", "Oscar", "Pam"]
           const namesList = names.map((name) => <li>{name}</li>)
+          const showNames = false
 
           return (
             <div>
               <h1>Hello {title}</h1>
-              <ul>
-                <li>{namesList}</li>
-              </ul>
+              {showNames ? <ul>{namesList}</ul> : "no names"}
             </div>
           )
           // return React.createElement("h1", null, "Hello React")
