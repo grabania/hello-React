@@ -17,10 +17,15 @@
         render() {
           //JSX
           const title = "ReactJS"
+          const names = ["Kevin", "Oscar", "Pam"]
+          const namesList = names.map((name) => <li>{name}</li>)
+
           return (
             <div>
               <h1>Hello {title}</h1>
-              <p>Lorem ipsum...</p>
+              <ul>
+                <li>{namesList}</li>
+              </ul>
             </div>
           )
           // return React.createElement("h1", null, "Hello React")
