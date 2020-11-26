@@ -21,20 +21,19 @@
         return <div>{showNames ? <ul>{namesList}</ul> : "no names"}</div>
       }
       class Headline extends React.Component {
+        state = {
+          title: "ReactJS",
+        }
+
         render() {
           //JSX
-          const title = "ReactJS"
-          const changeTitle = () => {
-            title = "Vue"
-          }
+          const changeTitle = () => this.setState({ title: "Vue" })
 
           return (
             <div>
-              <h1>Hello {title}</h1>
+              <h1>Hello {this.state.title}</h1>
               <Names />
-              <button on click={changeTitle}>
-                changeTitle
-              </button>
+              <button onClick={changeTitle}>Change title</button>
             </div>
           )
 
