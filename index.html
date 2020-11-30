@@ -13,24 +13,20 @@
   <body>
     <div id="app"></div>
     <script type="text/babel">
-      const Names = () => {
+      const Names = (props) => {
         const names = ["Kevin", "Oscar", "Pam"]
         const namesList = names.map((name) => <li key={name}>{name}</li>)
-        const showNames = true
-        const hideNames = () => {
-          console.log("hiding") //showNames
-        }
 
-        return (
-          <div>
-            {showNames ? <ul>{namesList}</ul> : "no names"}
-            <button onClick={hideNames}>Hide names</button>
-          </div>
-        )
+        return <div>{props.test ? <ul>{namesList}</ul> : "no names"}</div>
       }
       class Headline extends React.Component {
         state = {
           title: "ReactJS",
+          showNames: true,
+        }
+
+        toggleNames() {
+          this.setState({ showNames: !this.state.showNames })
         }
 
         render() {
@@ -40,8 +36,9 @@
           return (
             <div>
               <h1>Hello {this.state.title}</h1>
-              <Names />
+              <Names test={this.state.showNames} />
               <button onClick={changeTitle}>Change title</button>
+              <button onClick={() => this.toggleNames()}>Toggle names</button>
             </div>
           )
 
