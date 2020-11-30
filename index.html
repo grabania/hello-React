@@ -15,10 +15,18 @@
     <script type="text/babel">
       const Names = () => {
         const names = ["Kevin", "Oscar", "Pam"]
-        const namesList = names.map((name) => <li>{name}</li>)
-        const showNames = false
+        const namesList = names.map((name) => <li key={name}>{name}</li>)
+        const showNames = true
+        const hideNames = () => {
+          console.log("hiding") //showNames
+        }
 
-        return <div>{showNames ? <ul>{namesList}</ul> : "no names"}</div>
+        return (
+          <div>
+            {showNames ? <ul>{namesList}</ul> : "no names"}
+            <button onClick={hideNames}>Hide names</button>
+          </div>
+        )
       }
       class Headline extends React.Component {
         state = {
